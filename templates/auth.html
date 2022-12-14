@@ -1,0 +1,14 @@
+{% extends 'general.html' %}
+
+{% block content %}
+{{ super() }}
+
+<div class="content">
+    <form action="" method="post" name="auth" class="form">
+        <input type="text" name="login" class="form__input", placeholder="Логин", spellcheck="false", autocomplete="off" required>
+        <input type="password" name="password" class="form__input", placeholder="Пароль" required>
+        <input type="submit" name="auth" class="form__submit", value="Авторизоваться">
+    </form>
+</div>
+
+{% endblock %}

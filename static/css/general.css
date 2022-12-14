@@ -1,0 +1,201 @@
+body {
+  background-color: hsl(220deg, 10%, 10%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: "Montserrat";
+  color: hsl(220deg, 30%, 90%);
+  -webkit-tap-highlight-color: transparent;
+}
+body ::-webkit-scrollbar {
+  width: 10px;
+  background-color: hsl(220deg, 10%, 25%);
+}
+body ::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: hsl(220deg, 10%, 35%);
+  border-radius: 6px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: hsl(220deg, 10%, 15%);
+  box-shadow: 0px 0px 15px 0px hsla(0deg, 0%, 0%, 0.4);
+}
+.header__content {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  height: 60px;
+}
+.header__title {
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  font-size: x-large;
+  font-weight: 500;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.content {
+  width: 100%;
+}
+
+.form {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: hsl(220deg, 10%, 15%);
+  border-radius: 16px;
+  padding: 30px;
+}
+.form__input {
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  height: 45px;
+  border-radius: 8px;
+  color: hsl(220deg, 30%, 90%);
+  font-size: large;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: hsl(220deg, 10%, 25%);
+  text-align: center;
+  caret-color: transparent;
+}
+.form__input:focus {
+  border: 3px hsl(220deg, 10%, 35%) solid;
+}
+.form__input::-moz-placeholder {
+  color: hsl(220deg, 8%, 60%);
+  font-size: large;
+  font-weight: 500;
+}
+.form__input:-ms-input-placeholder {
+  color: hsl(220deg, 8%, 60%);
+  font-size: large;
+  font-weight: 500;
+}
+.form__input::placeholder {
+  color: hsl(220deg, 8%, 60%);
+  font-size: large;
+  font-weight: 500;
+}
+.form__submit {
+  width: 100%;
+  height: 45px;
+  line-height: 40px;
+  border: none;
+  text-align: center;
+  background-color: hsl(220deg, 10%, 25%);
+  color: hsl(220deg, 30%, 90%);
+  border-radius: 8px;
+  font-size: large;
+  font-weight: 500;
+  transition: 0.1s all;
+  cursor: pointer;
+}
+.form__submit:hover {
+  background-color: hsl(220deg, 10%, 35%);
+}
+
+.masonry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.masonry--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.masonry__column {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.masonry__item {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  background-color: hsl(220deg, 10%, 15%);
+  width: 100%;
+  height: 45px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.card__title {
+  display: inline-block;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  font-size: large;
+  font-weight: 500;
+}
+.card__body {
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+  height: 45px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 0 20px;
+  transition: 0.1s all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.item__title {
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  font-size: medium;
+}
+.item:hover {
+  background-color: hsl(220deg, 10%, 25%);
+}
+
+.spoiler__handler {
+  cursor: pointer;
+}
+.spoiler__body {
+  display: none;
+}
+
+.icon-button {
+  background-color: hsl(220deg, 10%, 25%);
+  border-radius: 6px;
+  min-width: 30px;
+  min-height: 30px;
+  line-height: 30px;
+  text-align: center;
+  transition: 0.1s all;
+  cursor: pointer;
+}
+.icon-button:hover {
+  background-color: hsl(220deg, 10%, 35%);
+}
+.icon-button__icon {
+  color: hsl(220deg, 30%, 90%);
+  font-size: large;
+}/*# sourceMappingURL=general.css.map */

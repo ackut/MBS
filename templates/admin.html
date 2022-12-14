@@ -1,0 +1,54 @@
+{% extends 'general.html' %}
+
+{% block content %}
+{{ super() }}
+
+<div class="content">
+    <div class="masonry masonry--2">
+        <div class="masonry__column">
+            <div class="masonry__item">
+                <div class="card spoiler">
+                    <div class="card__header spoiler__handler">
+                        <span class="card__title">Администраторы</span>
+                        <span class="icon-button"><div class="icon-button__icon"><i class="fa-solid fa-plus"></i></div></span>
+                    </div>
+                    <div class="card__body spoiler__body">
+                        <div class="item"><div class="item__title">Владислав Зельский</div></div>
+                        <div class="item"><div class="item__title">Даниил Евгеньевич</div></div>
+                        <div class="item"><div class="item__title">Кирилл Финченко</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="masonry__item">
+                <div class="card spoiler">
+                    <div class="card__header spoiler__handler">
+                        <span class="card__title">Группы</span>
+                        <span class="icon-button"><div class="icon-button__icon"><i class="fa-solid fa-plus"></i></div></span>
+                    </div>
+                    <div class="card__body spoiler__body">
+                        <div class="item"><div class="item__title">ПКС 9-20</div></div>
+                        <div class="item"><div class="item__title">ИСП 9-23</div></div>
+                        <div class="item"><div class="item__title">ПД 9-21</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="masonry__column">
+            <div class="card spoiler">
+                <div class="card__header spoiler__handler">
+                    <span class="card__title">Преподаватели</span>
+                    <span class="icon-button"><div class="icon-button__icon"><i class="fa-solid fa-plus"></i></div></span>
+                </div>
+                <div class="card__body spoiler__body">
+                    <div class="item"><div class="item__title">Самый лучший препод</div></div>
+                    <div class="item"><div class="item__title">Препод чуть похуже</div></div>
+                    <div class="item"><div class="item__title">Фиговый препод</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

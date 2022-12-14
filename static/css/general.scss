@@ -1,0 +1,218 @@
+$color__dark: hsl(220, 10%, 10%);
+$color__dark-primary: hsl(220, 10%, 15%);
+$color__dark-secondary: hsl(220, 10%, 25%);
+$color__dark-light: hsl(220, 10%, 35%);
+$color__dark-text: hsl(220, 30%, 90%);
+$color__dark-text-disabled: hsl(220, 8%, 60%);
+$color__dark-accent: hsl(220, 80%, 60%);
+
+$header-height: 60px;
+
+
+body {
+    background-color: $color__dark;
+    user-select: none;
+    font-family: 'Montserrat';
+    color: $color__dark-text;
+    -webkit-tap-highlight-color: transparent;
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: $color__dark-secondary;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        width: 10px; // TODO: Возможно не нужен.
+        background-color: $color__dark-light;
+        border-radius: 6px;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: $color__dark-primary;
+    box-shadow: 0px 0px 15px 0px hsla(0, 0%, 0%, 0.4);
+
+    &__content {
+        display: flex;
+        grid-template-columns: 1fr 1fr;
+        height: $header-height;
+    }
+
+    &__title {
+        width: 200px;
+        height: $header-height;
+        line-height: $header-height;
+        font-size: x-large;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+.container {
+    width: 100%;
+    margin-top: $header-height;
+}
+
+.content {
+    width: 100%;
+}
+
+.form {
+    width: fit-content;
+    background-color: $color__dark-primary;
+    border-radius: 16px;
+    padding: 30px;
+
+    &__input {
+        display: block;
+        box-sizing: border-box;
+        padding: 0;
+        width: 100%;
+        height: 45px;
+        border-radius: 8px;
+        color: $color__dark-text;
+        font-size: large;
+        font-weight: 500;
+        text-align: center;
+        border: none;
+        outline: none;
+        background-color: $color__dark-secondary;
+        text-align: center;
+        caret-color: transparent;
+
+        &:focus {
+            border: 3px $color__dark-light solid;
+        }
+
+        &::placeholder {
+            color: $color__dark-text-disabled;
+            font-size: large;
+            font-weight: 500;
+        }
+    }
+
+    &__submit {
+        width: 100%;
+        height: 45px;
+        line-height: 40px;
+        border: none;
+        text-align: center;
+        background-color: $color__dark-secondary;
+        color: $color__dark-text;
+        border-radius: 8px;
+        font-size: large;
+        font-weight: 500;
+        transition: .1s all;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color__dark-light;
+        }
+    }
+}
+
+.masonry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    &--2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__column {
+        width: 100%;
+        height: fit-content;
+    }
+
+    &__item {
+        width: 100%;
+        height: fit-content;
+    }
+}
+
+$card__header-height: 45px;
+.card {
+    &__header {
+        display: flex;
+        align-items: center;
+        background-color: $color__dark-primary;
+        width: 100%;
+        height: $card__header-height;
+        padding: 0 20px;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+
+    &__title {
+        display: inline-block;
+        width: 100%;
+        height: $card__header-height;
+        line-height: $card__header-height;
+        font-size: large;
+        font-weight: 500;
+    }
+
+    &__body {
+        width: 100%;
+    }
+}
+
+$item-height: $card__header-height;
+.item {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0 20px;
+    transition: .1s all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+
+    &__title {
+        width: 100%;
+        height: $item-height;
+        line-height: $item-height;
+        font-size: medium;
+    }
+
+    &:hover {
+        background-color: $color__dark-secondary;
+    }
+}
+
+.spoiler {
+    &__handler {
+        cursor: pointer;
+    }
+
+    &__body {
+        display: none;
+    }
+}
+
+.icon-button {
+    background-color: $color__dark-secondary;
+    border-radius: 6px;
+    min-width: 30px;
+    min-height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transition: .1s all;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color__dark-light;
+    }
+
+    &__icon {
+        color: $color__dark-text;
+        font-size: large;
+    }
+}

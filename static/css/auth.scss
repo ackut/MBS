@@ -1,0 +1,14 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    min-height: fit-content;
+}
+
+.form {
+    &__input {
+        width: 250px;
+        margin: 10px 0;
+    }
+}

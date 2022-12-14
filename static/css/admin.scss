@@ -1,0 +1,29 @@
+$color__dark: hsl(205, 10%, 10%);
+$color__dark-primary: hsl(205, 10%, 15%);
+$color__dark-secondary: hsl(205, 10%, 25%);
+$color__dark-light: hsl(205, 10%, 35%);
+$color__dark-text: hsl(205, 30%, 90%);
+$color__dark-text-disabled: hsl(205, 8%, 60%);
+$color__dark-accent: hsl(220, 70%, 60%);
+
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 50%;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.item {
+    display: grid;
+}
+
+.icon-button {
+    z-index: 10;
+}

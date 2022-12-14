@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
+.form__input {
+  width: 250px;
+  margin: 10px 0;
+}/*# sourceMappingURL=auth.css.map */
