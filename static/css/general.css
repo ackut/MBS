@@ -15,7 +15,7 @@ body ::-webkit-scrollbar {
 body ::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: hsl(220deg, 10%, 35%);
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .header {
@@ -63,7 +63,7 @@ body ::-webkit-scrollbar-thumb {
   padding: 0;
   width: 100%;
   height: 45px;
-  border-radius: 8px;
+  border-radius: 12px;
   color: hsl(220deg, 30%, 90%);
   font-size: large;
   font-weight: 500;
@@ -93,14 +93,15 @@ body ::-webkit-scrollbar-thumb {
   font-weight: 500;
 }
 .form__submit {
+  display: block;
   width: 100%;
   height: 45px;
-  line-height: 40px;
+  line-height: 45px;
   border: none;
   text-align: center;
   background-color: hsl(220deg, 10%, 25%);
   color: hsl(220deg, 30%, 90%);
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: large;
   font-weight: 500;
   transition: 0.1s all;
@@ -113,10 +114,15 @@ body ::-webkit-scrollbar-thumb {
 .masonry {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
 }
 .masonry--2 {
   grid-template-columns: repeat(2, 1fr);
+}
+.masonry--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.masonry--3 {
+  grid-template-columns: repeat(4, 1fr);
 }
 .masonry__column {
   width: 100%;
@@ -139,7 +145,7 @@ body ::-webkit-scrollbar-thumb {
   height: 45px;
   padding: 0 20px;
   box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .card__title {
   display: inline-block;
@@ -152,24 +158,39 @@ body ::-webkit-scrollbar-thumb {
 .card__body {
   width: 100%;
 }
+.card__item {
+  padding: 0 20px;
+}
+.card__button {
+  min-width: 30px;
+  min-height: 30px;
+}
 
 .item {
   width: 100%;
   height: 45px;
   box-sizing: border-box;
-  border-radius: 8px;
-  padding: 0 20px;
+  border-radius: 12px;
   transition: 0.1s all;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   cursor: pointer;
+}
+.item__icon {
+  float: left;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
 }
 .item__title {
   width: 100%;
   height: 45px;
   line-height: 45px;
   font-size: medium;
+}
+.item__link {
+  text-decoration: none;
+  color: hsl(220deg, 30%, 90%);
 }
 .item:hover {
   background-color: hsl(220deg, 10%, 25%);
@@ -182,20 +203,18 @@ body ::-webkit-scrollbar-thumb {
   display: none;
 }
 
-.icon-button {
+.button {
   background-color: hsl(220deg, 10%, 25%);
-  border-radius: 6px;
-  min-width: 30px;
-  min-height: 30px;
+  border-radius: 8px;
   line-height: 30px;
   text-align: center;
   transition: 0.1s all;
   cursor: pointer;
 }
-.icon-button:hover {
+.button:hover {
   background-color: hsl(220deg, 10%, 35%);
 }
-.icon-button__icon {
+.button__icon {
   color: hsl(220deg, 30%, 90%);
   font-size: large;
 }/*# sourceMappingURL=general.css.map */

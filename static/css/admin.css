@@ -7,14 +7,15 @@
   width: 50%;
 }
 
+.masonry {
+  gap: 10px;
+}
+
 .card {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-.item {
-  display: grid;
-}
-
-.icon-button {
-  z-index: 10;
+.form__input {
+  width: 250px;
+  margin: 10px 0;
 }/*# sourceMappingURL=admin.css.map */

@@ -6,6 +6,10 @@ $color__dark-text: hsl(220, 30%, 90%);
 $color__dark-text-disabled: hsl(220, 8%, 60%);
 $color__dark-accent: hsl(220, 80%, 60%);
 
+$border__radius-large: 16px;
+$border__radius-normal: 12px;
+$border__radius-small: 8px;
+
 $header-height: 60px;
 
 
@@ -24,9 +28,10 @@ body {
     ::-webkit-scrollbar-thumb {
         width: 10px; // TODO: Возможно не нужен.
         background-color: $color__dark-light;
-        border-radius: 6px;
+        border-radius: $border__radius-small;
     }
 }
+
 
 .header {
     position: fixed;
@@ -52,19 +57,22 @@ body {
     }
 }
 
+
 .container {
     width: 100%;
     margin-top: $header-height;
 }
 
+
 .content {
     width: 100%;
 }
 
+
 .form {
     width: fit-content;
     background-color: $color__dark-primary;
-    border-radius: 16px;
+    border-radius: $border__radius-large;
     padding: 30px;
 
     &__input {
@@ -73,7 +81,7 @@ body {
         padding: 0;
         width: 100%;
         height: 45px;
-        border-radius: 8px;
+        border-radius: $border__radius-normal;
         color: $color__dark-text;
         font-size: large;
         font-weight: 500;
@@ -96,14 +104,15 @@ body {
     }
 
     &__submit {
+        display: block;
         width: 100%;
         height: 45px;
-        line-height: 40px;
+        line-height: 45px;
         border: none;
         text-align: center;
         background-color: $color__dark-secondary;
         color: $color__dark-text;
-        border-radius: 8px;
+        border-radius: $border__radius-normal;
         font-size: large;
         font-weight: 500;
         transition: .1s all;
@@ -115,14 +124,14 @@ body {
     }
 }
 
+
 .masonry {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
 
-    &--2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    &--2 {grid-template-columns: repeat(2, 1fr);}
+    &--3 {grid-template-columns: repeat(3, 1fr);}
+    &--3 {grid-template-columns: repeat(4, 1fr);}
 
     &__column {
         width: 100%;
@@ -135,6 +144,7 @@ body {
     }
 }
 
+
 $card__header-height: 45px;
 .card {
     &__header {
@@ -145,7 +155,7 @@ $card__header-height: 45px;
         height: $card__header-height;
         padding: 0 20px;
         box-sizing: border-box;
-        border-radius: 8px;
+        border-radius: $border__radius-normal;
     }
 
     &__title {
@@ -160,20 +170,35 @@ $card__header-height: 45px;
     &__body {
         width: 100%;
     }
+
+    &__item {
+        padding: 0 20px;
+    }
+
+    &__button {
+        min-width: 30px;
+        min-height: 30px;
+    }
 }
+
 
 $item-height: $card__header-height;
 .item {
     width: 100%;
-    height: 45px;
+    height: $item-height;
     box-sizing: border-box;
-    border-radius: 8px;
-    padding: 0 20px;
+    border-radius: $border__radius-normal;
     transition: .1s all;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
     cursor: pointer;
+
+    &__icon {
+        float: left;
+        width: $item-height;
+        height: $item-height;
+        margin-right: 10px;
+    }
 
     &__title {
         width: 100%;
@@ -182,26 +207,26 @@ $item-height: $card__header-height;
         font-size: medium;
     }
 
+    &__link {
+        text-decoration: none;
+        color: $color__dark-text;
+    }
+
     &:hover {
         background-color: $color__dark-secondary;
     }
 }
 
-.spoiler {
-    &__handler {
-        cursor: pointer;
-    }
 
-    &__body {
-        display: none;
-    }
+.spoiler {
+    &__handler {cursor: pointer;}
+    &__body {display: none;}
 }
 
-.icon-button {
+
+.button {
     background-color: $color__dark-secondary;
-    border-radius: 6px;
-    min-width: 30px;
-    min-height: 30px;
+    border-radius: $border__radius-small;
     line-height: 30px;
     text-align: center;
     transition: .1s all;
@@ -216,3 +241,13 @@ $item-height: $card__header-height;
         font-size: large;
     }
 }
+
+
+// .menu {
+//     position: absolute;
+//     display: none;
+//     width: 200px;
+//     background-color: $color__dark-primary;
+//     border-radius: $border__radius-large;
+//     padding: 10px;
+// }

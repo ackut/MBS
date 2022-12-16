@@ -19,13 +19,46 @@
 <body>
     <div class="header">
         <div class="header__content">
-            <div class="header__title">{{ title }}</div>
+            <div class="header__title">{{ context.title }}</div>
         </div>
     </div>
     <div class="container">
         {% block content %}{% endblock %}
     </div>
+
+    <div class="context" style="display: none;">
+        <div class="context__body">
+            <a href="/" class="item__link">
+                <div class="context__item item">
+                    <div class="item__icon"></div>
+                    <div class="item__title">Главная</div>
+                </div>
+            </a>
+    
+            <a href="/admin" class="item__link">
+                <div class="context__item item">
+                    <div class="item__icon"></div>
+                    <div class="item__title">Админка</div>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
+<!-- <div class="card__menu menu">
+    <a href="/" class="item__link">
+        <div class="menu__item item">
+            <div class="item__icon"></div>
+            <div class="item__title">Главная</div>
+        </div>
+    </a>
+
+    <a href="/admin" class="item__link">
+        <div class="menu__item item">
+            <div class="item__icon"></div>
+            <div class="item__title">Админка</div>
+        </div>
+    </a>
+</div> -->
 
 <script src="{{ url_for('static', filename='js/general.js') }}"></script>
 {% if request.path == url_for('index') %}<script src="{{ url_for('static', filename='js/index.js') }}"></script>{% endif %}

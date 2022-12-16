@@ -7,4 +7,8 @@ def index():
     if not session.get('user_status'):
         return redirect(url_for('auth'))
 
-    return render_template('index.html', title='Таблица')
+    context = {
+        'title': 'Таблица'
+    }
+
+    return render_template('index.html', context=context)

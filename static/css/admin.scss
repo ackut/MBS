@@ -16,14 +16,17 @@ $color__dark-accent: hsl(220, 70%, 60%);
     width: 50%;
 }
 
+.masonry {
+    gap: 10px;
+}
+
 .card {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-.item {
-    display: grid;
-}
-
-.icon-button {
-    z-index: 10;
+.form {
+    &__input {
+        width: 250px;
+        margin: 10px 0;
+    }
 }

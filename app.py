@@ -1,3 +1,4 @@
+from werkzeug.security import generate_password_hash
 from flask import Flask
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
@@ -30,7 +31,7 @@ def create_root():
     if not User.query.all():
         root = User(
             login='root',
-            password='root',
+            password=generate_password_hash('root'),
             status=3,
             name='Root',
             creator='System'

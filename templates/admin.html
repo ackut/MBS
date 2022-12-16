@@ -1,21 +1,42 @@
 {% extends 'general.html' %}
+{% set users = context.User.query.all() %}
+
 
 {% block content %}
 {{ super() }}
-
 <div class="content">
     <div class="masonry masonry--2">
         <div class="masonry__column">
             <div class="masonry__item">
-                <div class="card spoiler">
+                <div class="card spoiler" id="admin-list">
                     <div class="card__header spoiler__handler">
                         <span class="card__title">Администраторы</span>
-                        <span class="icon-button"><div class="icon-button__icon"><i class="fa-solid fa-plus"></i></div></span>
+                        <span class="card__button button"><div class="button__icon"></div></span>
                     </div>
+
                     <div class="card__body spoiler__body">
-                        <div class="item"><div class="item__title">Владислав Зельский</div></div>
-                        <div class="item"><div class="item__title">Даниил Евгеньевич</div></div>
-                        <div class="item"><div class="item__title">Кирилл Финченко</div></div>
+                        {% for user in users %}
+                        {% if user.status == 3 %}
+                        <div class="card__item item"><div class="item__title">{{ user.name }}</div></div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="masonry__item">
+                <div class="card spoiler">
+                    <div class="card__header spoiler__handler">
+                        <span class="card__title">Преподаватели</span>
+                        <span class="card__button button"><div class="button__icon"></div></span>
+                    </div>
+
+                    <div class="card__body spoiler__body">
+                        {% for user in users %}
+                        {% if user.status == 2 %}
+                        <div class="card__item item"><div class="item__title">{{ user.name }}</div></div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -24,29 +45,29 @@
                 <div class="card spoiler">
                     <div class="card__header spoiler__handler">
                         <span class="card__title">Группы</span>
-                        <span class="icon-button"><div class="icon-button__icon"><i class="fa-solid fa-plus"></i></div></span>
+                        <span class="card__button button"><div class="button__icon"></div></span>
                     </div>
+
                     <div class="card__body spoiler__body">
-                        <div class="item"><div class="item__title">ПКС 9-20</div></div>
-                        <div class="item"><div class="item__title">ИСП 9-23</div></div>
-                        <div class="item"><div class="item__title">ПД 9-21</div></div>
+                        {% for user in users %}
+                        {% if user.status == 1 %}
+                        <div class="card__item item"><div class="item__title">{{ user.name }}</div></div>
+                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-    
-        <div class="masonry__column">
-            <div class="card spoiler">
-                <div class="card__header spoiler__handler">
-                    <span class="card__title">Преподаватели</span>
-                    <span class="icon-button"><div class="icon-button__icon"><i class="fa-solid fa-plus"></i></div></span>
-                </div>
-                <div class="card__body spoiler__body">
-                    <div class="item"><div class="item__title">Самый лучший препод</div></div>
-                    <div class="item"><div class="item__title">Препод чуть похуже</div></div>
-                    <div class="item"><div class="item__title">Фиговый препод</div></div>
-                </div>
-            </div>
+    </div>
+</div>
+
+<div class="window">
+    <div class="window__content">
+        <div class="form" name="add_admin">
+            <input type="text" class="form__input" name="name" placeholder="Публичное имя" spellcheck="false" autocomplete="off" required>
+            <input type="text" class="form__input" name="login" placeholder="Логин" spellcheck="false" autocomplete="off" required>
+            <input type="password" name="password" class="form__input" placeholder="Пароль" required>
+            <span class="form__submit form__handler">Добавить</span>
         </div>
     </div>
 </div>
