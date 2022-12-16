@@ -7,15 +7,44 @@ $(() => {
 
 // Инициализация слушателей спойлеров.
 function initSpoilerHandlers() {
-    var spoiler_handlers = Array.from($('.spoiler__handler'));      // Получение списка слушателей.
+    var spoiler_handlers = Array.from($('.spoiler__handler'));                          // Получение списка слушателей.
 
-    spoiler_handlers.forEach(spoiler_handler => {                   // Перебор слушателей.
-        $(spoiler_handler).click(() => {                            // Назначение события на слушатель.
-            var spoiler = $(spoiler_handler).parent();              // Получение родителя слушателя.
-            var spoiler__body = $(spoiler).find('.spoiler__body');  // Получение тела/контента спойлера.
+    spoiler_handlers.forEach(spoiler_handler => {                                       // Перебор слушателей.
+        $(spoiler_handler).click((event) => {                                           // Назначение события на слушатель.
+            var spoiler = $(spoiler_handler).parent();                                  // Получение родителя слушателя.
+            var spoiler__body = $(spoiler).find('.spoiler__body');                      // Получение тела/контента спойлера.
+            var spoiler_items = Array.from($(spoiler__body).children('.spoiler__item')) // Получение списка элементов спойлера.
 
-            spoiler__body.slideToggle(100);                         // Плавное переключение видимости.
+            if (!spoiler_items.length) {                                                // Проверка существования элементов в теле спойлера.
+                var clickOffset = [event.pageY, event.pageX];                           // Получение позиции курсора, относительно страницы.
+                return displayHint(clickOffset, 'В этом блоке нет элементов');          // Отображение подсказки, если спойлер пустой.
+            }
+            spoiler__body.slideToggle(100);                                             // Если элементы есть, плавное переключение видимости.
         });
+    });
+}
+
+
+// Отображение всплывающих подсказок.
+function displayHint(offset, text) {
+    $('#hint').remove();                    // Удаление существующих подсказок.
+    var hint = $('<div id="hint"></div>')   // Создание элемента.
+    hint.text(text);                        // Добавление текста к элементу.
+    hint.css({                              // Присвоение элементу CSS свойств/стилей.
+        display: 'none',
+        position: 'absolute',
+        top: `${offset[0]}px`,
+        left: `${offset[1]}px`,
+        width: 'fit-content',
+        padding: '20px',
+        borderRadius: '16px',
+        backgroundColor: 'hsl(220, 10%, 25%)',
+        fontSize: 'medium',
+        fontWeight: '500'
+    })
+    $('body').append(hint);                             // Добавление элемента на страницу.
+    $(hint).fadeIn(100).delay(800).fadeOut(100, () => { // Анимация появления/исчезания подсказки.
+        $('#hint').remove();                            // Удаление подсказки, после исчезновения.
     });
 }
 
@@ -49,6 +78,7 @@ function initFromHandlers() {
 }
 
 
+// Обработка результата AJAX запроса.
 function ajaxResponse(response) {
     if (!response || !response['status']) { return false }
 
@@ -56,26 +86,3 @@ function ajaxResponse(response) {
         $('#admin-list').children('.card__body').append(`<div class="card__item item"><div class="item__title">${response['name']}</div></div>`)
     }
 }
-
-
-// function initContextMenu(selector) {
-//     $(selector).contextmenu((event) => {
-//         event.preventDefault();
-//         var top = event.offsetY;
-//         var left = event.offsetX;
-
-//         $('.context').fadeIn(0);
-//         var contextBodyWidth = $('.context__body').width();
-//         var contextBodyHeight = $('.context__body').height();
-
-//         top -= (contextBodyHeight / 2)
-//         left -= (contextBodyWidth / 2)
-
-//         $('.context__body').css('marginTop', `${top}px`);
-//         $('.context__body').css('marginLeft', `${left}px`);
-
-//         $('.context').click((event) => {
-//             $('.context').fadeOut(0);
-//         });
-//     })
-// }

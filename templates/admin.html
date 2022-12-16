@@ -7,54 +7,54 @@
 <div class="content">
     <div class="masonry masonry--2">
         <div class="masonry__column">
-            <div class="masonry__item">
-                <div class="card spoiler" id="admin-list">
-                    <div class="card__header spoiler__handler">
-                        <span class="card__title">Администраторы</span>
-                        <span class="card__button button"><div class="button__icon"></div></span>
-                    </div>
+            <div class="card masonry__item spoiler" id="admin-list">
+                <div class="card__header spoiler__handler">
+                    <span class="card__title">Администраторы</span>
+                    <span class="card__button button"><div class="button__icon"></div></span>
+                </div>
 
-                    <div class="card__body spoiler__body">
-                        {% for user in users %}
-                        {% if user.status == 3 %}
-                        <div class="card__item item"><div class="item__title">{{ user.name }}</div></div>
-                        {% endif %}
-                        {% endfor %}
+                <div class="card__body spoiler__body">
+                    {% for user in users %}
+                    {% if user.status == 3 %}
+                    <div class="card__item spoiler__item item">
+                        <div class="item__title">{{ user.name }}</div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
-            <div class="masonry__item">
-                <div class="card spoiler">
-                    <div class="card__header spoiler__handler">
-                        <span class="card__title">Преподаватели</span>
-                        <span class="card__button button"><div class="button__icon"></div></span>
-                    </div>
+            <div class="card masonry__item spoiler">
+                <div class="card__header spoiler__handler">
+                    <span class="card__title">Преподаватели</span>
+                    <span class="card__button button"><div class="button__icon"></div></span>
+                </div>
 
-                    <div class="card__body spoiler__body">
-                        {% for user in users %}
-                        {% if user.status == 2 %}
-                        <div class="card__item item"><div class="item__title">{{ user.name }}</div></div>
-                        {% endif %}
-                        {% endfor %}
+                <div class="card__body spoiler__body">
+                    {% for user in users %}
+                    {% if user.status == 2 %}
+                    <div class="card__item spoiler__item item">
+                        <div class="item__title">{{ user.name }}</div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
-            <div class="masonry__item">
-                <div class="card spoiler">
-                    <div class="card__header spoiler__handler">
-                        <span class="card__title">Группы</span>
-                        <span class="card__button button"><div class="button__icon"></div></span>
-                    </div>
+            <div class="card masonry__item spoiler">
+                <div class="card__header spoiler__handler">
+                    <span class="card__title">Группы</span>
+                    <span class="card__button button"><div class="button__icon"></div></span>
+                </div>
 
-                    <div class="card__body spoiler__body">
-                        {% for user in users %}
-                        {% if user.status == 1 %}
-                        <div class="card__item item"><div class="item__title">{{ user.name }}</div></div>
-                        {% endif %}
-                        {% endfor %}
+                <div class="card__body spoiler__body">
+                    {% for user in users %}
+                    {% if user.status == 1 %}
+                    <div class="card__item spoiler__item item">
+                        <div class="item__title">{{ user.name }}</div>
                     </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
