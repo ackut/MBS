@@ -69,6 +69,7 @@ body {
 }
 
 
+$form__input-height: 45px;
 .form {
     width: fit-content;
     background-color: $color__dark-primary;
@@ -80,7 +81,9 @@ body {
         box-sizing: border-box;
         padding: 0;
         width: 100%;
-        height: 45px;
+        min-width: 250px;
+        height: $form__input-height;
+        line-height: $form__input-height;
         border-radius: $border__radius-normal;
         color: $color__dark-text;
         font-size: large;
@@ -106,8 +109,8 @@ body {
     &__submit {
         display: block;
         width: 100%;
-        height: 45px;
-        line-height: 45px;
+        height: $form__input-height;
+        line-height: $form__input-height;
         border: none;
         text-align: center;
         background-color: $color__dark-secondary;
@@ -122,6 +125,17 @@ body {
             background-color: $color__dark-light;
         }
     }
+
+    &__title {
+        display: block;
+        width: 100%;
+        height: $form__input-height;
+        line-height: $form__input-height;
+        font-size: larger;
+        font-weight: 500;
+        text-align: center;
+        color: $color__dark-text;
+    }
 }
 
 
@@ -131,7 +145,7 @@ body {
 
     &--2 {grid-template-columns: repeat(2, 1fr);}
     &--3 {grid-template-columns: repeat(3, 1fr);}
-    &--3 {grid-template-columns: repeat(4, 1fr);}
+    &--4 {grid-template-columns: repeat(4, 1fr);}
 
     &__column {
         width: 100%;
@@ -184,6 +198,8 @@ $card__header-height: 45px;
 
 $item-height: $card__header-height;
 .item {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: $item-height;
     box-sizing: border-box;
@@ -193,6 +209,10 @@ $item-height: $card__header-height;
     overflow: hidden;
     cursor: pointer;
 
+    &:hover {
+        background-color: $color__dark-secondary;
+    }
+
     &__icon {
         float: left;
         width: $item-height;
@@ -201,7 +221,7 @@ $item-height: $card__header-height;
     }
 
     &__title {
-        width: 100%;
+        display: inline-block;
         height: $item-height;
         line-height: $item-height;
         font-size: medium;
@@ -212,8 +232,9 @@ $item-height: $card__header-height;
         color: $color__dark-text;
     }
 
-    &:hover {
-        background-color: $color__dark-secondary;
+    &__button {
+        min-width: 30px;
+        min-height: 30px;
     }
 }
 
@@ -225,6 +246,7 @@ $item-height: $card__header-height;
 
 
 .button {
+    display: inline-block;
     background-color: $color__dark-secondary;
     border-radius: $border__radius-small;
     line-height: 30px;
@@ -241,6 +263,32 @@ $item-height: $card__header-height;
         font-size: large;
     }
 }
+
+
+.modal-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0, 0%, 0, 0.5);
+}
+
+
+.hint {
+    display: none;
+    position: fixed;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: hsl(220, 10%, 25%);
+    font-size: medium;
+    font-weight: 500;
+}
+
 
 // .menu {
 //     position: absolute;

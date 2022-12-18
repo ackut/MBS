@@ -4,8 +4,11 @@ from app import app, db, User
 
 
 def add_admin(form):
-    if check_admin_by_login(form['login']):
-        return jsonify({ 'status': False })
+    if check_user_by_login(form['login']):
+        return jsonify({
+            'status': False,
+            'exception': 'Администратор с таким логином уже существует'
+        })
 
     try:
         admin = User(
@@ -20,19 +23,21 @@ def add_admin(form):
 
         return jsonify({
             'status': True,
-            'type': 'add_admin',
+            'type': 'admin',
+            'action': 'add',
             'name': admin.name
         })
 
     except Exception as ex:
-        print('Ошибка добавления админа.')
-    
-    return jsonify({ 'status': False })
+        return jsonify({
+            'status': False,
+            'exception': 'Произошла неизвестная ошибка'
+        })
 
 
-def check_admin_by_login(login: str):
-    admin = User.query.filter_by(login=login).first()
-    return admin if admin else False
+def check_user_by_login(login: str):
+    user = User.query.filter_by(login=login).first()
+    return user if user else False
 
 
 @app.route('/admin/', methods=['GET', 'POST'])

@@ -13,6 +13,7 @@ app.config.from_object(__name__)
 db = SQLAlchemy(app)
 
 
+# Таблица пользователей: админы/преподы/студенты.
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -27,6 +28,31 @@ class User(db.Model):
         return f'<user {self.id}>'
 
 
+# Таблица учебных предметов.
+class Subject(db.Model):                    
+    __tablename__ = 'subjects'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(32), nullable=False)
+    creator = db.Column(db.String(16), nullable=False)
+    creation_date = db.Column(db.DateTime, default=datetime.now())
+
+    def __repr__(self):
+        return f'<subject {self.id}>'
+
+
+# Таблица связывающая преподавателей с предметами.
+class UserSubject(db.Model):
+    __tablename__ = 'user_subject'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    subject_id = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return f'<user_subject {self.id}>'
+
+
+# Стандартный админ.
+# TODO: Добавить удаление после добавления админа.
 def create_root():
     if not User.query.all():
         root = User(

@@ -7,67 +7,99 @@
 <div class="content">
     <div class="masonry masonry--2">
         <div class="masonry__column">
-            <div class="card masonry__item spoiler" id="admin-list">
+            <div class="card masonry__item spoiler">
                 <div class="card__header spoiler__handler">
                     <span class="card__title">Администраторы</span>
-                    <span class="card__button button"><div class="button__icon"></div></span>
+                    <span class="card__button button modal-menu__handler" id="admin-list"><div class="button__icon"></div></span>
                 </div>
 
-                <div class="card__body spoiler__body">
+                <div class="card__body spoiler__body" id="admin-list">
                     {% for user in users %}
                     {% if user.status == 3 %}
-                    <div class="card__item spoiler__item item">
-                        <div class="item__title">{{ user.name }}</div>
+                    <div class="card__item spoiler__item item modal-menu__handler" id="user-info">
+                        <span id="user-id" hidden>{{ user.id }}</span> <!-- JS meta -->
+                        <span class="item__title">{{ user.name }}</span>
                     </div>
                     {% endif %}
                     {% endfor %}
+                </div>
+
+                <div class="modal-menu" id="admin-list">
+                    <div class="form" name="add_admin">
+                        <div class="form__title">Администратор</div>
+                        <input type="text" class="form__input" name="name" placeholder="Публичное имя" spellcheck="false" autocomplete="off" required>
+                        <input type="text" class="form__input" name="login" placeholder="Логин" spellcheck="false" autocomplete="off" required>
+                        <input type="password" name="password" class="form__input" placeholder="Пароль" required>
+                        <span class="form__submit form__handler">Добавить</span>
+                    </div>
+                </div>
+
+                <div class="modal-menu" id="user-info">
+                    <div class="form" name="edit_admin">
+                        <div class="form__title" id="user-info-name"></div>
+                        <input type="text" class="form__input" id="user-info__name" name="name" placeholder="Публичное имя" spellcheck="false" autocomplete="off" required>
+                        <input type="text" class="form__input" id="user-info__login" name="login" placeholder="Логин" spellcheck="false" autocomplete="off" required>
+                        <input type="password" name="password" class="form__input" placeholder="Пароль" required>
+                        <span class="form__submit form__handler">Сохранить</span>
+                    </div>
                 </div>
             </div>
 
             <div class="card masonry__item spoiler">
                 <div class="card__header spoiler__handler">
                     <span class="card__title">Преподаватели</span>
-                    <span class="card__button button"><div class="button__icon"></div></span>
+                    <span class="card__button button modal-menu__handler" id="teacher-list"><div class="button__icon"></div></span>
                 </div>
 
-                <div class="card__body spoiler__body">
+                <div class="card__body spoiler__body" id="teacher-list">
                     {% for user in users %}
                     {% if user.status == 2 %}
                     <div class="card__item spoiler__item item">
-                        <div class="item__title">{{ user.name }}</div>
+                        <span id="user" hidden>{{ user.id }}</span> <!-- JS meta -->
+                        <span class="item__title">{{ user.name }}</span>
                     </div>
                     {% endif %}
                     {% endfor %}
+                </div>
+
+                <div class="modal-menu" id="teacher-list">
+                    <div class="form" name="add_teacher">
+                        <div class="form__title">Преподаватель</div>
+                        <input type="text" class="form__input" name="name" placeholder="Публичное имя" spellcheck="false" autocomplete="off" required>
+                        <input type="text" class="form__input" name="login" placeholder="Логин" spellcheck="false" autocomplete="off" required>
+                        <input type="password" name="password" class="form__input" placeholder="Пароль" required>
+                        <span class="form__submit form__handler">Добавить</span>
+                    </div>
                 </div>
             </div>
 
             <div class="card masonry__item spoiler">
                 <div class="card__header spoiler__handler">
                     <span class="card__title">Группы</span>
-                    <span class="card__button button"><div class="button__icon"></div></span>
+                    <span class="card__button button modal-menu__handler" id="group-list"><div class="button__icon"></div></span>
                 </div>
 
-                <div class="card__body spoiler__body">
+                <div class="card__body spoiler__body" id="group-list">
                     {% for user in users %}
                     {% if user.status == 1 %}
                     <div class="card__item spoiler__item item">
-                        <div class="item__title">{{ user.name }}</div>
+                        <span id="user" hidden>{{ user.id }}</span> <!-- JS meta -->
+                        <span class="item__title">{{ user.name }}</span>
                     </div>
                     {% endif %}
                     {% endfor %}
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="window">
-    <div class="window__content">
-        <div class="form" name="add_admin">
-            <input type="text" class="form__input" name="name" placeholder="Публичное имя" spellcheck="false" autocomplete="off" required>
-            <input type="text" class="form__input" name="login" placeholder="Логин" spellcheck="false" autocomplete="off" required>
-            <input type="password" name="password" class="form__input" placeholder="Пароль" required>
-            <span class="form__submit form__handler">Добавить</span>
+                <div class="modal-menu" id="group-list">
+                    <div class="form" name="add_group">
+                        <div class="form__title">Группа</div>
+                        <input type="text" class="form__input" name="name" placeholder="Публичное имя" spellcheck="false" autocomplete="off" required>
+                        <input type="text" class="form__input" name="login" placeholder="Логин" spellcheck="false" autocomplete="off" required>
+                        <input type="password" name="password" class="form__input" placeholder="Пароль" required>
+                        <span class="form__submit form__handler">Добавить</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
